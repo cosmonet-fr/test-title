@@ -37,10 +37,10 @@ with open('urls.csv') as fichier_csv:
 
 
 # Créer une liste pour les en-têtes
-en_tete = ["url", "titre_attendu", "titre_page", "validation"]
+en_tete = ["URL", "Titre attendu", "Titre de la page", "Validation"]
 
 # Créer un nouveau fichier pour écrire dans le fichier appelé « data.csv »
-with open('resultat.csv', 'w') as fichier_csv:
+with open('resultat.csv', 'w', encoding="utf-8") as fichier_csv:
    # Créer un objet writer (écriture) avec ce fichier
    writer = csv.writer(fichier_csv, delimiter=';')
    writer.writerow(en_tete)
