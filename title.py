@@ -13,13 +13,14 @@ def titleCheck(url):
     return (soup.title.string)
 
 
-with open('urls.csv') as fichier_csv:
+with open('urlsTitles.csv') as fichier_csv:
     reader = csv.DictReader(fichier_csv, delimiter=';')
-
+    i = 0
     for ligne in reader:
+        i = i + 1
         print(" ")
         print("__________________________")
-        print(" ")
+        print(i)
         dataPage = titleCheck(ligne['url'])
         titresAttendue.append(ligne['titre'])
         titresPage.append(dataPage)
@@ -40,7 +41,7 @@ with open('urls.csv') as fichier_csv:
 en_tete = ["URL", "Titre attendu", "Titre de la page", "Validation"]
 
 # Créer un nouveau fichier pour écrire dans le fichier appelé « data.csv »
-with open('resultat.csv', 'w', encoding="utf-8") as fichier_csv:
+with open('resultat_titres.csv', 'w', encoding="utf-8") as fichier_csv:
    # Créer un objet writer (écriture) avec ce fichier
    writer = csv.writer(fichier_csv, delimiter=';')
    writer.writerow(en_tete)
@@ -49,4 +50,4 @@ with open('resultat.csv', 'w', encoding="utf-8") as fichier_csv:
       # Créer une nouvelle ligne avec le titre et la description à ce moment de la boucle
       ligne = [urlTeste, titreAttendue, titrePage, validation]
       writer.writerow(ligne)
-print('Rapport enregisté dans le fichier "resultat.csv".')
+print('Rapport enregisté dans le fichier "resultat_titres.csv".')

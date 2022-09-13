@@ -1,5 +1,6 @@
 resultat.csv
-
+resultat_titres.csv
+resultat_meta.csv
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
