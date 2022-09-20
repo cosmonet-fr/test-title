@@ -93,12 +93,3 @@ def saveCsv(col2, col3, fileName):
             ligne = [urlTeste, dataAttendue, dataPage, validation]
             writer.writerow(ligne)
         print('Rapport enregisté dans le fichier " '+ fileName +'".')
-
-test = input("Pour tester les balises <titles> tapez 1, pour tester la meta description tapez 2 \n")
-
-if (test == '1'):
-    title()
-elif (test == '2'):
-    meta()
-else:
-    print("Le numéro que vous avez entré est incorecte" )
