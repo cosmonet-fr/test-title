@@ -7,7 +7,7 @@ import functions as function
 def runTest(button_1):
     if (titleCheck.get_active() == True):
         function.title()
-    elif (metaCheck.get_active() == True):
+    if (metaCheck.get_active() == True):
         function.meta()
 
 mainWindow = Gtk.Window()
@@ -33,9 +33,6 @@ grid.attach(metaCheck, 6,2,1,1)
 grid.attach(metaLabel, 0,2,1,1)
 grid.attach(button_1, 0, 6, 6, 1)
 grid.set_row_spacing(8)
-
-print(titleCheck.get_active())
-print(metaCheck.get_active())
 
 mainWindow.add(grid)
 mainWindow.show_all()
