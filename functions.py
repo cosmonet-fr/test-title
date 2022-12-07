@@ -25,9 +25,9 @@ def metaCheck(url):
     return (soup.find_all('meta'))
 
 
-def title():
+def title(csvFile):
     reset()
-    with open('urlsTitles.csv') as fichier_csv:
+    with open(csvFile) as fichier_csv:
         reader = csv.DictReader(fichier_csv, delimiter=';')
         i = 0
         for ligne in reader:
@@ -47,7 +47,7 @@ def title():
                 print("Le titre de la page est: " + dataPage)
                 print("Le résultat attendu est: " + ligne['titre'])
                 validations.append("ECHEC")
-    saveCsv("Titre attendu", "Titre de la page", "resultat_titres.csv")
+    #saveCsv("Titre attendu", "Titre de la page", "resultat_titres.csv")
 
 def meta(csvFile):
     reset()
@@ -73,7 +73,7 @@ def meta(csvFile):
                     if (desc != ligne['meta']):
                         print(ligne['url'] + " »» KO")
                         validations.append("ECHEC")
-    saveCsv("Meta attendu", "Meta de la page", "resultat_meta.csv")
+    #saveCsv("Meta attendu", "Meta de la page", "resultat_meta.csv")
 
 
 def saveCsv(col2, col3, fileName):
