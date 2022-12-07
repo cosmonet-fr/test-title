@@ -49,9 +49,9 @@ def title():
                 validations.append("ECHEC")
     saveCsv("Titre attendu", "Titre de la page", "resultat_titres.csv")
 
-def meta():
+def meta(csvFile):
     reset()
-    with open('urlsMeta.csv') as fichier_csv:
+    with open(csvFile) as fichier_csv:
         reader = csv.DictReader(fichier_csv, delimiter=';')
         i = 0
         for ligne in reader:
@@ -70,7 +70,7 @@ def meta():
                     if (desc == ligne['meta']):
                         print(ligne['url'] + " »» Ok")
                         validations.append('OK')
-                    elif (desc != ligne['meta']):
+                    if (desc != ligne['meta']):
                         print(ligne['url'] + " »» KO")
                         validations.append("ECHEC")
     saveCsv("Meta attendu", "Meta de la page", "resultat_meta.csv")
